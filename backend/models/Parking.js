@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const parkingSchema = new mongoose.Schema(
     {
         ownerId : String, 
@@ -14,4 +14,6 @@ const parkingSchema = new mongoose.Schema(
     }
 );
 parkingSchema.index({location : "2dsphere"});
-modules.exports = mongoose.model("Parking" , parkingSchema);    
+const Parking= mongoose.model("Parking" , parkingSchema);    
+
+export default Parking;

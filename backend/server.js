@@ -1,10 +1,12 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-dotenv.config();
-const cors = require('cors');
 
-const app = express();
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+import cors from "cors";
+import {register , login } from "./controllers/authController.js";
+const app = express()
+
 
 app.use(cors());
 app.use(express.json());
@@ -29,4 +31,7 @@ const PORT = 5000;
 app.listen( PORT , async ()=>
 {
     console.log(" Server started");
-})
+});
+
+app.use("auth/login" , login)
+// app.use("")
